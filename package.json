@@ -6,7 +6,8 @@
   "scripts": {
     "build": "webpack --mode=build",
     "dev": "webpack --progress --colors --watch --mode=dev",
-    "test": "mocha --compilers js:babel-core/register --colors --check-leaks -t 5000 -b -R spec test/index.js"
+    "test": "mocha --compilers js:babel-core/register --colors --check-leaks -t 5000 -b -R spec test/index.js",
+    "cover": "babel-node ./node_modules/istanbul/lib/cli.js --config=./test/.istanbul.yml cover ./node_modules/mocha/bin/_mocha ./test/index.js"
   },
   "dependencies": {
     "bluebird": "^3.4.0",
@@ -15,6 +16,7 @@
   },
   "devDependencies": {
     "babel": "6.3.13",
+    "babel-cli": "^6.9.0",
     "babel-core": "6.1.18",
     "babel-eslint": "5.0.0",
     "babel-loader": "6.1.0",
@@ -23,6 +25,7 @@
     "chai": "3.4.1",
     "eslint": "1.7.2",
     "eslint-loader": "1.1.0",
+    "istanbul": "^0.4.3",
     "json-loader": "^0.5.4",
     "mocha": "2.3.4",
     "pg": "^4.5.5",

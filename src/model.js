@@ -1,3 +1,8 @@
+// create cli with commands:
+// init: setup connection and base model in models folder
+// make:model User --migration --fields="name:string, email:string"
+
+
 class Model {
     constructor(db) {
         this.db = db;
