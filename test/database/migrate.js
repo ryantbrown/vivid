@@ -22,9 +22,9 @@ function seed(done) {
 };
 
 function migrateAndSeed(done) {
-    exec('knex migrate:latest', function(err) {
+    exec('knex migrate:latest', err => {
         if (err) return done(err);
-        exec('knex seed:run', function(err) {
+        exec('knex seed:run', err => {
             if (err) return done(err);
             done();
         })
