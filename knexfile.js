@@ -6,7 +6,8 @@ module.exports = {
       port: 15432,
       user: 'root',
       password: 'vagrant',
-      database: 'vagrant'
+      database: 'vagrant',
+      charset: 'utf8'
     },
     pool: {
       min: 2,
