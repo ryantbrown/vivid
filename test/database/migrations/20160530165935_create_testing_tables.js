@@ -9,7 +9,7 @@ exports.up = function(knex, Promise) {
             table.timestamps(true, true); // type=timestamp, not null and default now()
         }),
         knex.schema.createTable('phones', table => {
-            table.increments('id').primary();
+            table.increments('phone_id').primary();
             table.string('name');
             table.integer('user_id').unsigned().references('users.id');
             table.index('user_id');

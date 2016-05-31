@@ -17,10 +17,18 @@ module.exports = function() {
             assert.equal('phones', phone.table);
         });
 
-        it('should return "id" by default for primary_key', function(){
+        it('should return "id" for primary_key if not set on parent model', function(){
             assert.equal('id', user.primary_key);
-            assert.equal('id', phone.primary_key);
         });
+
+        it('should return custom primary_key if set on parent model', function(){
+            assert.equal('phone_id', phone.primary_key);
+        });
+
+
+
+
+
 
     });
 

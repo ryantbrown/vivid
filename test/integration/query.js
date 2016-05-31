@@ -21,6 +21,16 @@ module.exports = function() {
             });
         });
 
+        describe('#all()', function(){
+            it('should return an array of model objects', function(){
+                return user.all().get().then(function(users){
+                    assert.equal(2, users.length)
+                    assert.equal('Ryan 1', users[0].name);
+                    assert.equal('Ryan 2', users[1].name);
+                });
+            });
+        });
+
     });
 
 };
