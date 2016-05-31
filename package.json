@@ -6,7 +6,12 @@
   "scripts": {
     "build": "webpack --mode=build",
     "dev": "webpack --progress --colors --watch --mode=dev",
-    "test": "mocha --compilers js:babel-core/register --colors -w ./test/*.spec.js"
+    "test": "mocha --compilers js:babel-core/register --colors --check-leaks -t 5000 -b -R spec test/index.js"
+  },
+  "dependencies": {
+    "bluebird": "^3.4.0",
+    "inflection": "^1.10.0",
+    "knex": "^0.11.5"
   },
   "devDependencies": {
     "babel": "6.3.13",
@@ -18,7 +23,9 @@
     "chai": "3.4.1",
     "eslint": "1.7.2",
     "eslint-loader": "1.1.0",
+    "json-loader": "^0.5.4",
     "mocha": "2.3.4",
+    "pg": "^4.5.5",
     "webpack": "1.12.9",
     "yargs": "3.32.0"
   },

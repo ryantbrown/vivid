@@ -1,38 +1,49 @@
 var webpack = require('webpack');
-var UglifyJsPlugin = webpack.optimize.UglifyJsPlugin;
 var path = require('path');
 var env = require('yargs').argv.mode;
 
-var libraryName = 'library';
-
-var plugins = [], outputFile;
-
-if (env === 'build') {
-  plugins.push(new UglifyJsPlugin({ minimize: true }));
-  outputFile = libraryName + '.min.js';
-} else {
-  outputFile = libraryName + '.js';
-}
+var externals = [{
+  "knex": "knex",
+  "bluebird": {
+    root: "Promise",
+    commonjs2: "bluebird",
+    commonjs: "bluebird",
+    amd: "bluebird"
+  },
+  "lodash": {
+    root: "_",
+    commonjs2: "lodash",
+    commonjs: "lodash",
+    amd: "lodash"
+  }
+}]
 
 var config = {
-  entry: __dirname + '/src/index.js',
+  entry: __dirname + '/src/vivid.js',
   devtool: 'source-map',
   output: {
     path: __dirname + '/lib',
-    filename: outputFile,
-    library: libraryName,
+    filename: 'vivid.js',
+    library: 'vivid',
     libraryTarget: 'umd',
     umdNamedDefine: true
+  },
+  node: {
+    fs: "empty"
   },
   module: {
     loaders: [
       {
-        test: /(\.jsx|\.js)$/,
-        loader: 'babel',
-        exclude: /(node_modules|bower_components)/
+        test: /\.json$/,
+        loader: 'json-loader'
       },
       {
-        test: /(\.jsx|\.js)$/,
+        test: /(\.js)$/,
+        loader: 'babel',
+        exclude: /(node_modules)/
+      },
+      {
+        test: /(\.js)$/,
         loader: "eslint-loader",
         exclude: /node_modules/
       }
@@ -42,7 +53,7 @@ var config = {
     root: path.resolve('./src'),
     extensions: ['', '.js']
   },
-  plugins: plugins
+  externals: externals
 };
 
 module.exports = config;
