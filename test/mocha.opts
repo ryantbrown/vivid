@@ -1,0 +1,6 @@
+-b
+-t 5000
+-R spec
+--colors
+--check-leaks
+--compilers js:babel-core/register

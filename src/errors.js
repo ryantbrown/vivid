@@ -1,10 +1,10 @@
 class BaseError extends Error {
-  constructor(message) {
-    super();
-    this.message = message;
-    this.stack = (new Error(message)).stack;
-    this.name = this.constructor.name;
-  }
+    constructor(message) {
+        super();
+        this.message = message;
+        this.stack = (new Error(message)).stack;
+        this.name = this.constructor.name;
+    }
 }
 
 class RelationError extends BaseError {
@@ -22,4 +22,4 @@ class QueryBuilderError extends BaseError {
 export {
     RelationError,
     QueryBuilderError
-}
+};

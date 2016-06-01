@@ -7,6 +7,7 @@ Promise.longStackTraces();
 
 describe('Unit Tests', function() {
     require('./unit/model')();
+    require('./unit/query')();
 });
 
 describe('Integration Tests', function() {

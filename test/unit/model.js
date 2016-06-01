@@ -10,7 +10,7 @@ const phone = new Phone;
 
 module.exports = function() {
 
-    describe("Base model", function(){
+    describe("Base model properties", function() {
 
         it('should return correct table for the model', function(){
             assert.equal('users', user.table);
@@ -24,11 +24,6 @@ module.exports = function() {
         it('should return custom primary_key if set on parent model', function(){
             assert.equal('phone_id', phone.primary_key);
         });
-
-
-
-
-
 
     });
 
