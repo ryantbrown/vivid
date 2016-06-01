@@ -2,6 +2,8 @@
 
 Vivid is an Active Record based ORM for Node, supporting PostgresSQL, MySQL, MariaDB, Sqlite3 and Oracle. Under the hood it uses [Knex](http://knexjs.org/), a well-tested query and schema builder for relational databases. Vivid makes it easy to map models to tables in your database and supports numerous relationship types. It also exposes a Collection class for easy result manipulation and comes with a CLI for initializing the library and generating models with corresponding migrations.
 
+Note: Vivid is not stable and should not be used in production...yet.
+
 ## Install
 
 Vivid depends on [Knex](http://knexjs.org/) so you'll need to install both as well as the adapter for your database.
